@@ -1,0 +1,755 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+
+/* --- PALETĂ DE CULORI WELLNESS (Mov) --- 
+   Principal (Dark): #2E1A47 (Mov Foarte Închis - pentru text)
+   Accent (Brand):   #8E44AD (Mov Ametist - pentru butoane/span)
+   Secundar:         #5B4B69 (Gri-Mov - pentru paragrafe)
+   Fundal Formular:  #F3E5F5 (Lavandă foarte deschisă)
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  border: none;
+  outline: none;
+  list-style: none;
+  text-decoration: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  transition: all 300ms ease;
+}
+
+/* Scrollbar Mov */
+html::-webkit-scrollbar-track {
+  background-color: #F3E5F5;
+}
+html::-webkit-scrollbar {
+  width: 10px;
+}
+html::-webkit-scrollbar-thumb {
+  border: 3px solid #F3E5F5;
+  background: #8E44AD; /* Mov accent */
+  border-radius: 5px;
+}
+
+body {
+  font-size: 1em;
+  color: #2E1A47; /* Textul general devine Mov închis, nu negru */
+}
+
+:before, :after {
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+}
+
+section {
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  max-width: 1140px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* --- TITLURI GENERALE --- */
+.title_container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+/* Modificat pentru contrast pe fundal deschis */
+.title_container.dark .head_title {
+  color: #2E1A47; 
+}
+.title_container.dark .head_title span {
+  color: #8E44AD;
+}
+.title_container.dark .subtitle {
+  color: #5B4B69;
+  font-weight: 500;
+}
+.title_container .head_title {
+  color: #2E1A47; /* Mov închis */
+  font-size: 2em;
+  font-weight: 300;
+}
+.title_container .head_title span {
+  color: #8E44AD; /* Accent Mov */
+  font-weight: 700;
+  font-size: 1.5em;
+}
+.title_container .subtitle {
+  color: #5B4B69;
+  text-align: center;
+}
+
+/* --- BUTOANE --- */
+.btn {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 8px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 1rem;
+  text-transform: capitalize;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn_1 {
+  color: #F4F4F5;
+  background-color: #8E44AD; /* Mov */
+}
+.btn_1:hover {
+  background-color: #732d91; /* Mov mai închis la hover */
+}
+
+.btn_2 {
+  color: #F4F4F5;
+  background-color: #2E1A47; /* Mov Foarte închis */
+}
+.btn_2:hover {
+  background-color: #8E44AD;
+}
+
+.input_field {
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 10px;
+  border: 1px solid #D1C4E9; /* Bordură mov pal */
+  padding: 8px 12px;
+  color: #2E1A47;
+  resize: none;
+}
+.input_field:focus {
+    border-color: #8E44AD;
+}
+
+
+/* --- LOGO IMAGINE --- */
+
+/* Resetăm stilurile vechi de text pentru .logo */
+header .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+/* Controlăm dimensiunea imaginii */
+header .logo img {
+    height: 100px; /* Ajustează înălțimea după preferințe (ex: 40px - 60px) */
+    width: auto;  /* Păstrează proporțiile imaginii */
+    object-fit: contain;
+}
+
+/* Ajustare pentru mobil, dacă e nevoie să fie mai mic */
+@media (max-width: 991px) {
+    header .logo img {
+        height: 55px;
+        padding-top: 10px;
+    }
+}
+
+/* --- HEADER / MENIU --- */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 100px;
+  z-index: 100000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.5s;
+}
+header.sticky {
+  background: rgba(255, 255, 255, 0.95); /* Alb semitransparent */
+  padding: 15px 100px;
+  box-shadow: 0 5px 10px rgba(46, 26, 71, 0.1); /* Umbră movulie */
+}
+header.sticky .logo {
+  color: #2E1A47;
+}
+header.sticky .nav li a {
+  color: #2E1A47;
+}
+header .logo {
+  color: #2E1A47; /* Logo Mov Închis ca să se vadă pe fundal alb */
+  font-weight: 700;
+  font-size: 2em;
+  text-decoration: none;
+}
+header .nav {
+  position: relative;
+  display: flex;
+}
+header .nav li {
+  margin: 0 0 0 30px;
+}
+header .nav li a {
+  color: #5B4B69; /* Gri-Mov */
+  font-weight: 500;
+}
+header .nav li a:hover {
+  color: #8E44AD; /* Mov aprins la hover */
+  transition: 200ms;
+}
+
+/* --- HERO SECTION --- */
+.hero_section {
+  position: relative;
+  min-height: 100vh;
+  /* Imaginea ta mov pe alb */
+  background: url('image/background-img/wellness-bg.png') no-repeat; 
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+/* Am scos overlay-ul gri complet ca să se vadă culorile tale */
+.hero_section::before {
+  display: none; 
+}
+.hero_section .content {
+  max-width: 900px;
+  width: 100%;        /* Asigură lățimea */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* 2. Titlul H2 - Îl ridicăm și împingem totul sub el */
+.hero_section .content h2 .custom-font {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700; /* Fonturile de mână sunt de obicei mai subțiri */
+  font-size: 1.2em;
+  line-height: 1;
+  color: #2E1A47;
+  text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
+  
+  margin-top: -30px;      /* Resetăm marginea de sus */
+  
+  /* AICI ESTE SECRETUL: */
+  /* Adăugăm o margine mare jos. Asta creează "fereastra" pentru background.
+     Folosim 'vh' (viewport height) ca să fie proporțional cu ecranul. */
+  margin-bottom: 18vh; 
+}
+
+.hero_section .content h2 .small-text {
+    /* Micșorează textul la 40% din mărimea titlului mare */
+    font-size: 0.3em; 
+    
+    /* Resetăm greutatea fontului să fie mai subțire */
+    font-weight: 500; 
+    
+    /* Arată foarte elegant dacă acest text secundar este cu majuscule */
+    text-transform: uppercase; 
+    
+    /* Adăugăm spațiu între litere pentru un aspect premium */
+    letter-spacing: 5px; 
+    
+    /* Asigură-te că folosește fontul simplu, nu cel de mână */
+    font-family: 'Poppins', sans-serif; /* Sau ce font folosești tu pe site */
+    
+    display: block; /* Asta îl forțează să stea sub, dacă nu ai pus <br> */
+}
+
+/* 3. Paragraful P - Resetăm marginile negative vechi */
+.hero_section .content p {
+  color: #5B4B69;
+  font-weight: 500;
+  font-size: 1.3em;
+  
+  /* Scoatem margin-bottom negativ și punem spațiu normal până la buton */
+  margin-bottom: 20px; 
+}
+
+/* --- ABOUT SECTION --- */
+.about_section {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+.about_section .head_title {
+  color: #2E1A47;
+  font-size: 2em;
+  font-weight: 300;
+}
+.about_section .head_title span {
+  color: #8E44AD;
+  font-weight: 700;
+  font-size: 1.5em;
+}
+.about_section .row {
+  position: relative;
+  width: 100%;
+  gap: 20px;
+  flex: 0 0 50%;
+  padding: 15px;
+  justify-content: space-between;
+}
+.about_section .row:nth-child(even) {
+  flex-direction: row-reverse;
+}
+.about_section .row .content {
+  position: relative;
+  width: 48%;
+}
+.about_section .row .content p {
+  color: #5B4B69; /* Text paragraf mai soft */
+}
+.about_section .row .content p span {
+  color: #8E44AD;
+  font-weight: 700;
+}
+.about_section .row .content .img_box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  aspect-ratio: 2/1;
+  overflow: hidden; 
+  border-radius: 10px; 
+  box-shadow: 0 10px 20px rgba(46, 26, 71, 0.1);
+}
+.about_section .row .content .img_box img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* --- SYSTEM / PROGRAM SECTION --- */
+.system_section {
+  position: relative;
+  min-height: 100vh;
+  /* Aceeași imagine sau una similară mov pe alb */
+  background: url('image/background-img/wellness-bg.png'); 
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  overflow: hidden;
+}
+/* Eliminăm filtrul întunecat */
+.system_section::before {
+  display: none;
+}
+
+.system_section .container .row {
+  padding: 40px 0 0;
+}
+.system_section .container .row .timeline {
+  flex: 0 0 100%;
+  max-width: 100%;
+  position: relative;
+}
+/* Linia centrală devine mov */
+.system_section .container .row .timeline::before {
+  content: "";
+  width: 2px;
+  height: calc(100% + 80px);
+  left: 50%;
+  top: 0;
+  background-color: #D1C4E9; /* Mov deschis */
+  position: absolute;
+}
+.system_section .container .row .timeline .row .timeline_item {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding: 0 15px;
+}
+.system_section .container .row .timeline .row .timeline_item:nth-child(odd) {
+  padding-right: calc(50% + 50px);
+}
+.system_section .container .row .timeline .row .timeline_item:nth-child(odd) .timeline_item_inner::before {
+  right: -50px;
+}
+.system_section .container .row .timeline .row .timeline_item:nth-child(odd) .timeline_item_inner .dot {
+  right: -56px;
+}
+.system_section .container .row .timeline .row .timeline_item:nth-child(even) {
+  padding-left: calc(50% + 50px);
+}
+.system_section .container .row .timeline .row .timeline_item:nth-child(even) .timeline_item_inner::before {
+  left: -50px;
+}
+.system_section .container .row .timeline .row .timeline_item:nth-child(even) .timeline_item_inner .dot {
+  left: -54px;
+}
+
+/* Cardurile din Program - Acum cu fundal alb/laptos pentru a se vedea textul */
+.system_section .container .row .timeline .row .timeline_item .timeline_item_inner {
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  
+  /* Fundal "Sticlă" dar mai opac, ca să se citească textul pe fundalul tău */
+  background: rgba(255, 255, 255, 0.7); 
+  box-shadow: 0 10px 30px rgba(46, 26, 71, 0.05);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  z-index: 1;
+}
+.system_section .container .row .timeline .row .timeline_item .timeline_item_inner::before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 2px;
+  background-color: #D1C4E9;
+  top: 36px;
+  z-index: -2;
+}
+.system_section .container .row .timeline .row .timeline_item .timeline_item_inner .dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  top: 31px;
+  border: 2px solid #8E44AD;
+  border-radius: 50%;
+  background: #FFFFFF;
+}
+.system_section .container .row .timeline .row .timeline_item .timeline_item_inner span {
+  font-weight: 600;
+  color: #8E44AD; /* Accent */
+  font-style: italic;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+.system_section .container .row .timeline .row .timeline_item .timeline_item_inner h4 {
+  font-size: 1.2em; 
+  color: #2E1A47; /* Titlu card închis */
+  margin: 0;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+.system_section .container .row .timeline .row .timeline_item .timeline_item_inner p {
+  color: #5B4B69; /* Paragraf gri-mov */
+  margin: 15px 0 0;
+  font-weight: 400;
+}
+
+
+/* --- CONTACT SECTION --- */
+.contact_section {
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: grid;
+  align-items: center;
+  background: #fff; /* Fundal curat */
+}
+.contact_section .container {
+  margin: 40px 0 0;
+  display: flex;
+  flex: 0 0 50%;
+  padding: 15px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.contact_section .container .contact_form {
+  border-radius: 10px;
+  padding: 40px;
+  background: #F3E5F5; /* Fundal lavandă deschis */
+  box-shadow: 0 5px 15px rgba(46, 26, 71, 0.05);
+  width: 45%;
+}
+.contact_section .container .contact_form h3 {
+  color: #2E1A47;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.contact_section .container .contact_form .input_form {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.contact_section .container .map_box {
+  position: relative;
+  padding: 25px;
+  height: 400;
+  width: 50%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  background: #F3E5F5;
+  border-radius: 10px;
+}
+.contact_section .container .map_box iframe {
+  width: 100%;
+  height: 350px;
+  border: 0;
+  border-radius: 5px;
+}
+.contact_section .container .footer_contact {
+  margin-top: 40px;
+  width: 100%;
+  color: #2E1A47;
+  background: #F3E5F5;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+}
+.contact_section .container .footer_contact .item {
+  margin: 5px;
+  position: relative;
+  text-align: center;
+}
+.contact_section .container .footer_contact .item span {
+  opacity: 0.6;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  color: #8E44AD;
+}
+.contact_section .container .footer_contact .item p {
+  font-weight: 600;
+}
+
+.cp {
+  padding: 15px 20px;
+  border-top: 1px solid rgba(46, 26, 71, 0.1);
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+}
+.cp p {
+  color: #5B4B69;
+}
+.cp a {
+  color: #8E44AD;
+  font-weight: 600;
+}
+
+/* MEDIA QUERIES (Aceleași ca înainte, doar ajustate culorile dacă e nevoie) */
+@media (max-width: 991px) {
+  section {
+    padding: 60px 20px;
+  }
+  header {
+    padding: 20px 20px;
+  }
+  header .menuToggle {
+    position: relative;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    /* Filtrul pentru a face iconița burger mov */
+    color: #2E1A47;
+  }
+  header .menuToggle::before {
+    position: absolute;
+    content: "\f0c9";
+    display: flex;
+    font-family: "Font Awesome 6 Free";
+    font-weight: 700;
+    font-style: normal;
+    font: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-size: 30px;
+  }
+  header .menuToggle.active {
+    z-index: 10000;
+  }
+  header .menuToggle.active::before {
+    position: absolute;
+    content: "\f00d";
+    display: flex;
+    font-family: "Font Awesome 6 Free";
+    font-weight: 700;
+    font-style: normal;
+    font: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-size: 30px;
+  }
+  header .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF; /* Meniu mobil alb */
+    transform: translateX(1000px);
+    transition: all 0.5s ease;
+  }
+  header .nav.active {
+    transform: translateX(0px);
+    transform-origin: left;
+  }
+  header .nav li a {
+    color: #2E1A47;
+    font-size: 28px;
+    font-weight: 500;
+  }
+  header.sticky {
+    padding: 10px 20px;
+  }
+}
+@media (max-width: 768px) {
+  section {
+    padding: 40px 20px;
+  }
+  
+  .hero_section .content h2 {
+    font-size: 5em;       
+    margin-bottom: 20vh;  
+  }
+
+  .about_section .row {
+    padding: 20px 15px;
+    margin: 0;
+    text-align: center;
+  }
+  .about_section .row .content {
+    margin: 20px 0;
+    width: 100%;
+  }
+  .about_section .row .content:nth-child(even) {
+    display: none;
+  }
+  .system_section .container .row {
+    padding: 20px 0 0;
+  }
+  .system_section .container .row .timeline::before {
+    display: none;
+  }
+  .system_section .container .row .timeline .row .timeline_item {
+    width: 100%;
+    padding: 0;
+  }
+  .system_section .container .row .timeline .row .timeline_item:not(:last-child) {
+    padding-bottom: 20px;
+  }
+  .system_section .container .row .timeline .row .timeline_item:nth-child(odd) {
+    padding-right: 0;
+    text-align: center;
+  }
+  .system_section .container .row .timeline .row .timeline_item:nth-child(even) {
+    padding-left: 0;
+    text-align: center;
+  }
+  .system_section .container .row .timeline .row .timeline_item .timeline_item_inner::before {
+    display: none;
+  }
+  .system_section .container .row .timeline .row .timeline_item .timeline_item_inner .dot {
+    display: none;
+  }
+  .system_section .container .row .timeline .row .timeline_item .timeline_item_inner span {
+    font-size: 0.8em;
+  }
+  .contact_section {
+    display: block; /* Renunțăm la grid/centrare verticală */
+    height: auto;   /* Înălțime automată, cât e nevoie */
+    min-height: auto;
+    padding-bottom: 50px; /* Puțin spațiu jos */
+  }
+
+  .contact_section .title_container {
+    margin-bottom: 30px; /* Spațiu între titlu și formular */
+  }
+
+  .contact_section .container {
+    margin: 0;
+    flex: 0 0 100%;
+    padding: 0px;
+    display: flex;
+    flex-direction: column; /* Asigură ordinea verticală */
+  }
+
+  .contact_section .container .contact_form {
+    padding: 30px 20px;
+    width: 100%;
+    margin: 0 0 30px 0; /* Spațiu sub formular */
+  }
+
+  .contact_section .container .map_box {
+    width: 100%;
+    height: 400px; /* Fixăm o înălțime pentru hartă */
+    margin-bottom: 30px;
+  }
+  
+  .contact_section .container .footer_contact {
+    margin-top: 0;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+  }
+}
+@media (max-width: 425px) {
+  p {
+    font-size: 0.9em;
+  }
+  .hero_section .content h2 {
+    font-size: 2.5em;
+    font-weight: 600;
+  }
+  .service_section .collection .row {
+    scale: 0.9;
+  }
+}
+@media (max-width: 320px) {
+  .service_section .collection .row {
+    scale: 0.8;
+  }
+}
+
+
+
+/* --- Aici încep regulile DOAR pentru Desktop (ecrane mai mari de 768px) --- */
+@media (min-width: 768px) {
+
+    /* 1. Mărim titlul principal dacă e nevoie */
+    .hero_section .content h2 {
+        font-size: 5em; /* Îl facem puțin mai mare pe desktop */
+        margin-top: -30px;      /* Resetăm marginea de sus */
+        margin-bottom: 18vh;
+        font-weight: 700; /* Fonturile de mână sunt de obicei mai subțiri */
+        line-height: 1;
+    }
+
+    /* 2. Mărim partea cu "Wellness Studio" specific pentru desktop */
+    .hero_section .content h2 .small-text {
+        /* Pe mobil era 0.4em. Aici îl facem mai mare. */
+        font-size: 0.2em; 
+        
+        
+        
+        /* Putem ajusta și spațierea literelor dacă pare prea răsfirat */
+        letter-spacing: 7px;
+    }
+}
