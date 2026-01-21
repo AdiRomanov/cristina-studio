@@ -158,7 +158,7 @@ header .logo {
 
 /* Controlăm dimensiunea imaginii */
 header .logo img {
-    height: 100px; /* Ajustează înălțimea după preferințe (ex: 40px - 60px) */
+    height: 60px; /* Ajustează înălțimea după preferințe (ex: 40px - 60px) */
     width: auto;  /* Păstrează proporțiile imaginii */
     object-fit: contain;
 }
@@ -185,7 +185,7 @@ header {
   transition: 0.5s;
 }
 header.sticky {
-  background: rgba(255, 255, 255, 0.95); /* Alb semitransparent */
+  background: rgba(255, 255, 255, 0.247); /* Alb semitransparent */
   padding: 15px 100px;
   box-shadow: 0 5px 10px rgba(46, 26, 71, 0.1); /* Umbră movulie */
 }
@@ -320,7 +320,8 @@ header .nav li a:hover {
   width: 48%;
 }
 .about_section .row .content p {
-  color: #5B4B69; /* Text paragraf mai soft */
+  color: #5B4B69;
+  line-height: 1.6; /* Added for better readability */
 }
 .about_section .row .content p span {
   color: #8E44AD;
@@ -347,14 +348,12 @@ header .nav li a:hover {
 .system_section {
   position: relative;
   min-height: 100vh;
-  /* Aceeași imagine sau una similară mov pe alb */
   background: url('image/background-img/wellness-bg.png'); 
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
   overflow: hidden;
 }
-/* Eliminăm filtrul întunecat */
 .system_section::before {
   display: none;
 }
@@ -367,14 +366,13 @@ header .nav li a:hover {
   max-width: 100%;
   position: relative;
 }
-/* Linia centrală devine mov */
 .system_section .container .row .timeline::before {
   content: "";
   width: 2px;
   height: calc(100% + 80px);
   left: 50%;
   top: 0;
-  background-color: #D1C4E9; /* Mov deschis */
+  background-color: #D1C4E9;
   position: absolute;
 }
 .system_section .container .row .timeline .row .timeline_item {
@@ -401,20 +399,16 @@ header .nav li a:hover {
   left: -54px;
 }
 
-/* Cardurile din Program - Acum cu fundal alb/laptos pentru a se vedea textul */
+/* Updated Card Styles */
 .system_section .container .row .timeline .row .timeline_item .timeline_item_inner {
   padding: 30px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  z-index: 1000;
-  
-  /* Fundal "Sticlă" dar mai opac, ca să se citească textul pe fundalul tău */
   background: rgba(255, 255, 255, 0.7); 
   box-shadow: 0 10px 30px rgba(46, 26, 71, 0.05);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
-  
   border: 1px solid rgba(255, 255, 255, 0.8);
   z-index: 1;
 }
@@ -438,22 +432,27 @@ header .nav li a:hover {
 }
 .system_section .container .row .timeline .row .timeline_item .timeline_item_inner span {
   font-weight: 600;
-  color: #8E44AD; /* Accent */
+  color: #8E44AD;
   font-style: italic;
   margin-bottom: 10px;
   text-transform: capitalize;
 }
 .system_section .container .row .timeline .row .timeline_item .timeline_item_inner h4 {
   font-size: 1.2em; 
-  color: #2E1A47; /* Titlu card închis */
+  color: #2E1A47;
   margin: 0;
   letter-spacing: 0.5px;
   font-weight: 600;
 }
 .system_section .container .row .timeline .row .timeline_item .timeline_item_inner p {
-  color: #5B4B69; /* Paragraf gri-mov */
+  color: #5B4B69;
   margin: 15px 0 0;
   font-weight: 400;
+}
+/* New style for bold text inside cards */
+.system_section .container .row .timeline .row .timeline_item .timeline_item_inner p strong {
+    color: #2E1A47;
+    font-weight: 600;
 }
 
 
@@ -751,5 +750,38 @@ header .nav li a:hover {
         
         /* Putem ajusta și spațierea literelor dacă pare prea răsfirat */
         letter-spacing: 7px;
+    }
+}
+
+
+
+
+/* Limba Selector */
+.lang-switch {
+    display: flex;
+    gap: 15px;
+    margin-left: auto;
+    align-items: center;
+}
+
+.lang-switch a {
+    text-decoration: none;
+    font-size: 1.3rem; /* Mărimea steagurilor */
+    transition: transform 0.3s ease;
+    filter: grayscale(0.4); /* Puțin gri când nu e activ */
+}
+
+.lang-switch a:hover, .lang-switch a.active {
+    transform: scale(1.2);
+    filter: grayscale(0); /* Colorat complet la hover */
+}
+
+/* Ajustare pentru mobil */
+@media (max-width: 991px) {
+    .lang-switch {
+        position: absolute;
+        top: 30px;
+        right: 70px; /* Lângă butonul de meniu */
+        margin-left: 0;
     }
 }
