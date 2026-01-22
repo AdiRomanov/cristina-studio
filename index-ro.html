@@ -40,8 +40,8 @@
             </h2>
             
             <p data-aos="fade-down" data-aos-delay="100">
-                Refă-ți Corpul,<br>
-                Revigorează-ți Mintea.
+                Relaxare Profundă,<br>
+                Frumusețe Naturală.
             </p>
             <a href="#about" class="btn btn_1">Începe Călătoria</a>
         </div>
@@ -159,18 +159,22 @@
 
         <div class="container">
 
-            <form class="contact_form">
+            <form class="contact_form" action="https://formspree.io/f/mykkrdok" method="POST">
 
                 <h3 data-aos="fade-right">Trimite un Mesaj</h3>
+                
                 <div class="input_form" data-aos="fade-right" data-aos-delay="20">
-                    <input type="text" id="contact_form_name" placeholder="Nume" class="input_field">
+                    <input type="text" name="name" id="contact_form_name" placeholder="Nume" class="input_field" required>
                 </div>
+                
                 <div class="input_form" data-aos="fade-right" data-aos-delay="40">
-                    <input type="text" id="contact_form_email" placeholder="Email" class="input_field">
+                    <input type="email" name="email" id="contact_form_email" placeholder="Email" class="input_field" required>
                 </div>
+                
                 <div class="input_form" data-aos="fade-right" data-aos-delay="60">
-                    <textarea placeholder="Mesaj" id="contact_form_massage" class="input_field"></textarea>
+                    <textarea name="message" placeholder="Mesaj" id="contact_form_massage" class="input_field" required></textarea>
                 </div>
+                
                 <input type="submit" class="btn btn_2" value="Trimite" data-aos="fade-right" data-aos-delay="80">
 
             </form>
@@ -184,7 +188,7 @@
 
                 <div class="item" data-aos="fade-down" data-aos-delay="100">
                     <span>adresă</span>
-                    <p>Burgweg 1, Krautheim, Baden-Württemberg</p>
+                    <p>Burgweg 1, Krautheim, Baden-Württemberg, 74238</p>
                 </div>
                 <div class="item" data-aos="fade-down" data-aos-delay="200">
                     <span>email</span>
@@ -213,6 +217,64 @@
         AOS.init({
             duration: 600,
         })
+    </script>
+
+    <div class="popup-overlay" id="popup-overlay">
+        <div class="popup-content" id="popup-success" style="display: none;">
+            <i class="fas fa-check-circle"></i>
+            <h3>Succes!</h3>
+            <p>Mesajul tău a fost trimis cu succes. Te vom contacta în curând.</p>
+            <button class="close-btn" onclick="closePopup()">Închide</button>
+        </div>
+        <div class="popup-content" id="popup-error" style="display: none;">
+            <i class="fas fa-times-circle"></i>
+            <h3>Eroare!</h3>
+            <p>Ceva nu a funcționat. Te rugăm să încerci din nou mai târziu.</p>
+            <button class="close-btn" onclick="closePopup()">Închide</button>
+        </div>
+    </div>
+
+    <script>
+        // SCRIPT PENTRU TRIMITERE FORMSPREE SI POPUP
+        var form = document.querySelector(".contact_form");
+        
+        async function handleSubmit(event) {
+            event.preventDefault();
+            var status = document.getElementById("popup-overlay");
+            var successBox = document.getElementById("popup-success");
+            var errorBox = document.getElementById("popup-error");
+            var data = new FormData(event.target);
+
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                status.style.display = "flex"; // Arata overlay-ul
+                if (response.ok) {
+                    successBox.style.display = "block";
+                    errorBox.style.display = "none";
+                    form.reset(); // Goleste formularul
+                } else {
+                    response.json().then(data => {
+                        errorBox.style.display = "block";
+                        successBox.style.display = "none";
+                    });
+                }
+            }).catch(error => {
+                status.style.display = "flex";
+                errorBox.style.display = "block";
+                successBox.style.display = "none";
+            });
+        }
+
+        function closePopup() {
+            document.getElementById("popup-overlay").style.display = "none";
+        }
+
+        form.addEventListener("submit", handleSubmit);
     </script>
 </body>
 </html>
