@@ -643,8 +643,15 @@ header .nav li a:hover {
   }
 
   .system_section {
+    /* 1. Schimbăm imaginea cu cea verticală */
+    background-image: url('image/background-img/wellness-bg-mobile.png');
+    
+    /* 2. REZOLVAREA ZOOM-ULUI: Trecem pe scroll în loc de fixed */
     background-attachment: scroll; 
-    background-position: center center; /* Opțional: asigură centrarea */
+    
+    /* 3. Ne asigurăm că acoperă tot și e centrată */
+    background-position: center top; 
+    background-size: cover;
   }
 
   .system_section .container .row {
