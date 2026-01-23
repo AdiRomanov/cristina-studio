@@ -641,6 +641,12 @@ header .nav li a:hover {
   .about_section .row .content:nth-child(even) {
     display: block;
   }
+
+  .system_section {
+    background-attachment: scroll; 
+    background-position: center center; /* Opțional: asigură centrarea */
+  }
+
   .system_section .container .row {
     padding: 20px 0 0;
   }
