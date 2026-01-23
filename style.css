@@ -639,7 +639,7 @@ header .nav li a:hover {
     width: 100%;
   }
   .about_section .row .content:nth-child(even) {
-    display: none;
+    display: block;
   }
   .system_section .container .row {
     padding: 20px 0 0;
@@ -735,7 +735,7 @@ header .nav li a:hover {
     /* 1. Mărim titlul principal dacă e nevoie */
     .hero_section .content h2 {
         font-size: 5em; /* Îl facem puțin mai mare pe desktop */
-        margin-top: -30px;      /* Resetăm marginea de sus */
+        margin-top: -55px;      /* Resetăm marginea de sus */
         margin-bottom: 18vh;
         font-weight: 700; /* Fonturile de mână sunt de obicei mai subțiri */
         line-height: 1;
