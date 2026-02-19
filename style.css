@@ -332,7 +332,7 @@ header .nav li a:hover {
   align-items: center;
   justify-content: center;
   position: relative;
-  aspect-ratio: 2/1;
+  height: 500px;
   overflow: hidden; 
   border-radius: 10px; 
   box-shadow: 0 10px 20px rgba(46, 26, 71, 0.1);
@@ -534,6 +534,64 @@ header .nav li a:hover {
   font-weight: 600;
 }
 
+/* --- STILURI PENTRU BOX-UL DE ORAR --- */
+.contact_section .container .schedule_box {
+  width: 100%;
+  margin-top: 40px;
+  background: #F3E5F5;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.contact_section .container .schedule_box h3 {
+  color: #8E44AD;
+  font-size: 1.2em;
+  margin-bottom: 25px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contact_section .container .schedule_box .schedule_grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px 40px; /* Spațiu între coloane și rânduri */
+}
+
+.contact_section .container .schedule_box .day_row {
+  display: flex;
+  justify-content: space-between;
+  width: 300px; /* Lățime fixă pentru a alinia frumos textul stânga-dreapta */
+  border-bottom: 1px dashed rgba(142, 68, 173, 0.3); /* O linie punctată subtilă */
+  padding-bottom: 8px;
+  color: #2E1A47;
+}
+
+.contact_section .container .schedule_box .day_row span:first-child {
+  font-weight: 600;
+}
+
+/* Reducem spațiul de deasupra footer-ului de contact, deoarece acum avem orarul acolo */
+.contact_section .container .footer_contact {
+  margin-top: 20px; 
+}
+/* --- ADAPTĂRI PENTRU TELEFON (MOBILE RESPONSIVE) --- */
+@media (max-width: 768px) {
+  /* Mărim spațiul dintre orar și bara de contact pe ecrane mici */
+  .contact_section .container .footer_contact {
+    margin-top: 40px; 
+  }
+  
+  /* Ajustăm puțin și marginile interioare ale box-ului de orar ca să arate mai bine pe mobil */
+  .contact_section .container .schedule_box {
+    padding: 25px 15px; 
+    margin-top: 30px;
+  }
+}
+
 .cp {
   padding: 15px 20px;
   border-top: 1px solid rgba(46, 26, 71, 0.1);
@@ -716,7 +774,7 @@ header .nav li a:hover {
   }
   
   .contact_section .container .footer_contact {
-    margin-top: 0;
+    margin-top: 40px;
     flex-direction: column;
     padding: 20px;
     width: 100%;
