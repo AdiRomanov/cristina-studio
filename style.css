@@ -332,16 +332,63 @@ header .nav li a:hover {
   align-items: center;
   justify-content: center;
   position: relative;
-  height: 500px;
-  overflow: hidden; 
-  border-radius: 10px; 
+  overflow: hidden;
+  border-radius: 10px;
   box-shadow: 0 10px 20px rgba(46, 26, 71, 0.1);
+  background: #f3edf8;
 }
 .about_section .row .content .img_box img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  object-position: center center;
+  transition: transform 0.3s ease;
+}
+
+/* Portrait images: 1 and 2 */
+.about_section .row .content .img_box img[src*="wellness-1"],
+.about_section .row .content .img_box img[src*="wellness-2"] {
+  height: clamp(420px, 42vw, 640px);
+  object-position: center 45%;
+}
+
+/* Landscape images: 3 and 4 */
+.about_section .row .content .img_box img[src*="wellness-3"],
+.about_section .row .content .img_box img[src*="wellness-4"] {
+  height: clamp(300px, 32vw, 520px);
+  object-position: center 50%;
+}
+
+/* Separate desktop focus for wellness-5 */
+.about_section .row .content .img_box img[src*="wellness-5"] {
+  height: clamp(300px, 32vw, 520px);
+  object-position: 15% 35%;
+}
+
+@media (max-width: 768px) {
+  .about_section .row .content .img_box {
+    height: auto;
+  }
+
+  /* Portrait keep more vertical room on mobile */
+  .about_section .row .content .img_box img[src*="wellness-1"] {
+    height: clamp(300px, 62vw, 440px);
+    object-position: center 15%;
+  }
+
+  .about_section .row .content .img_box img[src*="wellness-2"] {
+    height: clamp(300px, 62vw, 440px);
+    object-position: center 35%;
+  }
+
+  /* Landscape remain more compact and already look good on mobile */
+  .about_section .row .content .img_box img[src*="wellness-3"],
+  .about_section .row .content .img_box img[src*="wellness-4"],
+  .about_section .row .content .img_box img[src*="wellness-5"] {
+    height: clamp(220px, 48vw, 340px);
+    object-position: center 50%;
+  }
 }
 
 /* --- SYSTEM / PROGRAM SECTION --- */
