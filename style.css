@@ -346,11 +346,16 @@ header .nav li a:hover {
   transition: transform 0.3s ease;
 }
 
-/* Portrait images: 1 and 2 */
+/* Portrait images: cover, 1 and 2 */
+.about_section .row .content .img_box img[src*="wellness-cover-1"],
 .about_section .row .content .img_box img[src*="wellness-1"],
 .about_section .row .content .img_box img[src*="wellness-2"] {
   height: clamp(420px, 42vw, 640px);
   object-position: center 45%;
+}
+
+.about_section .row .content .img_box img[src*="wellness-cover-1"] {
+  object-position: center 18%;
 }
 
 /* Landscape images: 3 and 4 */
@@ -372,6 +377,11 @@ header .nav li a:hover {
   }
 
   /* Portrait keep more vertical room on mobile */
+  .about_section .row .content .img_box img[src*="wellness-cover-1"] {
+    height: clamp(300px, 62vw, 440px);
+    object-position: center 50%;
+  }
+
   .about_section .row .content .img_box img[src*="wellness-1"] {
     height: clamp(300px, 62vw, 440px);
     object-position: center 15%;
